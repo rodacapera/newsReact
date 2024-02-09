@@ -18,6 +18,27 @@ const GetAllTasksQuery = () => {
 };
 
 const setTasksQuery = (
+  tasks: FormData[] | undefined,
+  setState: (e: string) => void,
+  state: string
+) => {
+  console.log('state', state);
+  console.log('state !!', !!state);
+
+  return useQuery({
+    queryKey: ['tasks'],
+    queryFn: async () => {
+      console.log('state>>>>', state);
+
+      setState('');
+      return tasks;
+    },
+    // refetchOnWindowFocus: false,
+    enabled: !!state,
+  });
+};
+
+const setTasksQueryOld = (
   tasks: FormData[],
   setTasks: (e: FormData[]) => void,
   modify: number | undefined,

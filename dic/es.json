@@ -12,5 +12,8 @@
   "finished": "Terminado",
   "finish": "Terminar",
   "edit": "Editar",
-  "delete": "Eliminar"
+  "delete": "Eliminar",
+  "delete_item": "Eliminar esta tarea",
+  "edit_item": "Editar esta tarea con los datos del formulario",
+  "finish_item": "Finalizar la tarea"
 }

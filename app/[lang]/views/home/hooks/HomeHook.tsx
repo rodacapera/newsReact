@@ -6,23 +6,48 @@ import { ChangeEvent, useEffect, useState } from 'react';
 const HomeHook = ({ dictionary }: { dictionary: Dictionary | undefined }) => {
   const [getData, setGetData] = useState<FormData>();
   const [tasks, setTasks] = useState<FormData[]>([]);
-  const [modify, setModify] = useState<number>();
+  const [state, setState] = useState<string>('');
   const [action, setAction] = useState<string>();
-  setTasksQuery(tasks, setTasks, modify, dictionary, action);
+  setTasksQuery(tasks, setState, state);
   const { data } = GetAllTasksQuery();
 
-  const handleFinishTask = (key: number) => {
-    setModify(key);
+  const handleEditTask = (key: number) => {
+    if (getData && data && dictionary) {
+      const dataClone = [...data];
+      dataClone[key].name = getData.name;
+      dataClone[key].description = getData.description;
+      localStorage.setItem('@tasks', JSON.stringify(dataClone));
+      setState('edited');
+      setTasks(dataClone);
+    }
   };
+
+  const handleFinishTask = (key: number) => {
+    if (data && dictionary) {
+      const dataClone = [...data];
+      dataClone[key].state = dictionary.finished;
+      localStorage.setItem('@tasks', JSON.stringify(dataClone));
+      setState('finished');
+      setTasks(dataClone);
+    }
+  };
+
   const handleDeleteTask = (key: number) => {
-    setAction('delete');
-    setModify(key);
+    if (data) {
+      const dataClone = [...data];
+      dataClone.splice(key, 1);
+      localStorage.setItem('@tasks', JSON.stringify(dataClone));
+      setState('delete');
+      setTasks(dataClone);
+    }
   };
 
   const handleAddTask = () => {
-    const dataClone: FormData[] = [];
-    if (getData) {
+    if (getData && data) {
+      const dataClone = [...data];
       dataClone.push(getData);
+      localStorage.setItem('@tasks', JSON.stringify(dataClone));
+      setState('added');
       setTasks(dataClone);
     }
   };
@@ -54,6 +79,7 @@ const HomeHook = ({ dictionary }: { dictionary: Dictionary | undefined }) => {
     data,
     handleFinishTask,
     handleDeleteTask,
+    handleEditTask,
   };
 };
 

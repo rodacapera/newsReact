@@ -13,4 +13,7 @@ export interface Dictionary {
   finish: string;
   edit: string;
   delete: string;
+  delete_item: string;
+  edit_item: string;
+  finish_item: string;
 }

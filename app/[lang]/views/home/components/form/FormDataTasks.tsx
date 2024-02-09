@@ -19,19 +19,13 @@ const FormDataTasks = ({
 }) => {
   return (
     <Container
-      className='tw-shadow-md tw-bg-slate-300 tw-p-6 tw-rounded-lg tw-z-10'
-      sx={{
-        display: 'flex',
-        height: 300,
-        width: '50%',
-        justifyContent: 'center',
-        justifyItems: 'center',
-        backgroundColor: '#4eb9d5',
-      }}
+      className='tw-shadow-md tw-flex tw-justify-center tw-items-center tw-bg-slate-300 dark:tw-bg-slate-800 tw-p-6 tw-rounded-lg tw-z-10'
+      sx={{ height: 400, width: '50%' }}
     >
       <Box
         sx={{
           width: 320,
+          height: '100%',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-around',
