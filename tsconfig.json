@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["app/[lang]/components/*"],
+      "@/views/*": ["app/[lang]/views/*"],
+      "@/firebase/*": ["app/[lang]/firebase/*"],
+      "@/reactQuery/*": ["app/[lang]/reactQuery/*"],
+      "@/interfaces/*": ["app/[lang]/interfaces/*"],
+      "@/types/*": ["app/[lang]/types/*"],
+      "@/globals/*": ["app/[lang]/globals/*"],
+      "@/theme/*": ["app/[lang]/theme/*"],
+      "@/hooks/*": ["app/[lang]/hooks/*"],
+      "@/provider/*": ["app/[lang]/provider/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/[lang]/types/getDictionary.tsx"
+  ],
+  "exclude": ["node_modules"]
+}

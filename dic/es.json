@@ -1,0 +1,16 @@
+{
+  "generalTitle": "One Tap dice!",
+  "homeTitle": "Hola titulo español",
+  "task_list": "Lista de tareas!",
+  "save": "Guardar",
+  "name": "Nombre",
+  "description": "Descripción",
+  "task": "Tarea",
+  "task_name": "Nombre de la tarea",
+  "state": "Estado",
+  "pending": "Pendiente",
+  "finished": "Terminado",
+  "finish": "Terminar",
+  "edit": "Editar",
+  "delete": "Eliminar"
+}
